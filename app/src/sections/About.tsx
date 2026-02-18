@@ -74,6 +74,17 @@ export default function About() {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
+            {/* Photo */}
+            <div className="mb-6">
+              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-border ring-4 ring-primary/10">
+                <img
+                  src="/cristian.png"
+                  alt="Cristian Bessone"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               {t.about.heading}
             </h2>
