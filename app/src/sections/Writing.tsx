@@ -7,7 +7,7 @@ export default function Writing() {
   const articles = t.writing.articles;
 
   return (
-    <section className="relative py-24 sm:py-32">
+    <section id="writing" className="relative py-24 sm:py-32">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
       
