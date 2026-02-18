@@ -297,7 +297,7 @@ const translations = {
       rights: 'Todos los derechos reservados.',
     },
   },
-} as const;
+};
 
 export type Translations = typeof translations.en;
 
