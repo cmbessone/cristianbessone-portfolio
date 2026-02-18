@@ -1,0 +1,28 @@
+import Navigation from './sections/Navigation';
+import Hero from './sections/Hero';
+import WhatIWorkOn from './sections/WhatIWorkOn';
+import Philosophy from './sections/Philosophy';
+import About from './sections/About';
+import Writing from './sections/Writing';
+import Contact from './sections/Contact';
+import Footer from './sections/Footer';
+import './App.css';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-dark text-foreground">
+      <Navigation />
+      <main>
+        <Hero />
+        <WhatIWorkOn />
+        <Philosophy />
+        <About />
+        <Writing />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
