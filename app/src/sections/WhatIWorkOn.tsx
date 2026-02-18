@@ -1,28 +1,8 @@
 import { motion } from 'framer-motion';
 import { Layers, Bot, Server, Shield } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
-const services = [
-  {
-    icon: Shield,
-    title: 'Decision-Critical AI Systems',
-    description: 'AI that operates in environments where decisions have regulatory, financial, or operational consequences. Architectures that separate prediction from action and maintain clear responsibility boundaries.',
-  },
-  {
-    icon: Layers,
-    title: 'Hybrid Systems',
-    description: 'Production AI that combines machine learning with business logic, regulatory constraints, and human judgment—integrated through architecture, not duct tape.',
-  },
-  {
-    icon: Bot,
-    title: 'Agentic Architectures',
-    description: 'Autonomous systems that understand their own limits. Explicit boundary definitions, fallback mechanisms, and human-in-the-loop integration that preserves decision authority.',
-  },
-  {
-    icon: Server,
-    title: 'AI Platforms',
-    description: 'Systems designed to operate under scale, audit requirements, version control, rollback capability, and the organizational realities of regulated industries.',
-  },
-];
+const icons = [Shield, Layers, Bot, Server];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -47,6 +27,12 @@ const itemVariants = {
 };
 
 export default function WhatIWorkOn() {
+  const { t } = useLanguage();
+  const services = t.work.services.map((s, i) => ({
+    ...s,
+    icon: icons[i],
+  }));
+
   return (
     <section id="work" className="relative py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,10 +44,10 @@ export default function WhatIWorkOn() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            What I Work On
+            {t.work.heading}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My work focuses on several interconnected domains where architecture and responsibility intersect.
+            {t.work.subheading}
           </p>
         </motion.div>
         

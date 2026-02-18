@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 const FloatingShape = ({ delay, className }: { delay: number; className: string }) => (
   <motion.div
@@ -29,6 +30,8 @@ const FloatingShape = ({ delay, className }: { delay: number; className: string 
 );
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
@@ -78,7 +81,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-8">
-            <span className="gradient-text">AI Architect</span>
+            <span className="gradient-text">{t.hero.subtitle}</span>
           </h2>
         </motion.div>
         
@@ -88,7 +91,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto mb-4">
-            AI Architecture for Decision-Critical Systems
+            {t.hero.tagline}
           </p>
         </motion.div>
         
@@ -98,7 +101,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="text-base sm:text-lg text-muted-foreground/80 max-w-xl mx-auto mb-10">
-            I work on AI systems where decisions matter—in banking, fintech, and regulated environments where failures have consequences.
+            {t.hero.description}
           </p>
         </motion.div>
         
@@ -115,7 +118,7 @@ export default function Hero() {
           >
             <a href="#contact">
               <Mail className="w-5 h-5 mr-2" />
-              Get in Touch
+              {t.hero.cta}
             </a>
           </Button>
           <Button
@@ -125,7 +128,7 @@ export default function Hero() {
             asChild
           >
             <a href="#work">
-              View My Work
+              {t.hero.viewWork}
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>

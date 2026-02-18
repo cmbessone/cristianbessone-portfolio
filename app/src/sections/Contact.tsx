@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, ArrowRight, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function Contact() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="relative py-24 sm:py-32">
       {/* Background gradient */}
@@ -21,12 +24,11 @@ export default function Contact() {
           </div>
           
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Let's Build Something That Lasts
+            {t.contact.heading}
           </h2>
           
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-            Open to consulting engagements on decision-critical AI architecture. 
-            If you're building systems where decisions matter, let's talk.
+            {t.contact.subheading}
           </p>
           
           {/* CTA Buttons */}
@@ -53,7 +55,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
               >
                 <Linkedin className="w-5 h-5 mr-2" />
-                Connect on LinkedIn
+                {t.contact.connectLinkedIn}
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
@@ -73,7 +75,7 @@ export default function Contact() {
                 <Mail className="w-5 h-5 text-primary" />
               </div>
               <div className="text-left">
-                <div className="text-sm text-muted-foreground">Email</div>
+                <div className="text-sm text-muted-foreground">{t.contact.email}</div>
                 <div className="text-white font-medium">studio@cristianbessone.com</div>
               </div>
             </motion.a>
@@ -92,7 +94,7 @@ export default function Contact() {
                 <Linkedin className="w-5 h-5 text-primary" />
               </div>
               <div className="text-left">
-                <div className="text-sm text-muted-foreground">LinkedIn</div>
+                <div className="text-sm text-muted-foreground">{t.contact.linkedin}</div>
                 <div className="text-white font-medium">linkedin.com/in/cristianbessone</div>
               </div>
             </motion.a>

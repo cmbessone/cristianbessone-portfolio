@@ -1,19 +1,16 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { Building2, Landmark, Cpu, Shield } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
-const stats = [
-  { value: 13, suffix: '+', label: 'Years Experience' },
-  { value: 50, suffix: '+', label: 'Enterprise Projects' },
-  { value: 3, suffix: '', label: 'Industries' },
-  { value: 100, suffix: '%', label: 'Production Focus' },
+const statValues = [
+  { value: 13, suffix: '+' },
+  { value: 50, suffix: '+' },
+  { value: 3, suffix: '' },
+  { value: 100, suffix: '%' },
 ];
 
-const industries = [
-  { icon: Landmark, name: 'Banking' },
-  { icon: Building2, name: 'Fintech' },
-  { icon: Shield, name: 'Regulated Enterprise' },
-];
+const industryIcons = [Landmark, Building2, Shield];
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   const [count, setCount] = useState(0);
@@ -49,6 +46,23 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export default function About() {
+  const { t } = useLanguage();
+
+  const statLabels = [
+    t.about.stats.experience,
+    t.about.stats.projects,
+    t.about.stats.industries,
+    t.about.stats.production,
+  ];
+  const stats = statValues.map((s, i) => ({ ...s, label: statLabels[i] }));
+
+  const industryNames = [
+    t.about.industries.banking,
+    t.about.industries.fintech,
+    t.about.industries.regulated,
+  ];
+  const industries = industryIcons.map((icon, i) => ({ icon, name: industryNames[i] }));
+
   return (
     <section id="about" className="relative py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,28 +75,28 @@ export default function About() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              About
+              {t.about.heading}
             </h2>
             
             <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
               <p>
-                I am a{' '}
+                {t.about.p1prefix}
                 <span className="text-white font-medium">
-                  Senior Software Engineer and AI Architect
-                </span>{' '}
-                with over 13 years of experience building systems in banking, fintech, and other regulated enterprise environments.
+                  {t.about.p1bold}
+                </span>
+                {t.about.p1suffix}
               </p>
               
               <p>
-                My background is in production systems, not research. I have spent my career working on software where{' '}
+                {t.about.p2prefix}
                 <span className="text-white font-medium">
-                  reliability, auditability, and clear decision boundaries
-                </span>{' '}
-                are not optional.
+                  {t.about.p2bold}
+                </span>
+                {t.about.p2suffix}
               </p>
               
               <p>
-                I approach AI from a systems perspective. The question is not what models can do in isolation, but how to integrate them into architectures that can survive operational complexity, regulatory scrutiny, and the eventual failure modes that all software encounters.
+                {t.about.p3}
               </p>
             </div>
             
@@ -102,7 +116,7 @@ export default function About() {
             {/* Tagline */}
             <div className="p-4 rounded-xl bg-gradient-to-r from-primary/10 to-transparent border-l-2 border-primary">
               <p className="text-white font-medium italic">
-                "Architecture outlasts models. Responsibility outlasts accuracy."
+                {t.about.quote}
               </p>
             </div>
           </motion.div>
@@ -145,12 +159,12 @@ export default function About() {
                   <Cpu className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Production-First Approach</h4>
-                  <p className="text-sm text-muted-foreground">Real-world constraints, not demos</p>
+                  <h4 className="text-white font-semibold">{t.about.productionFirst}</h4>
+                  <p className="text-sm text-muted-foreground">{t.about.productionFirstSub}</p>
                 </div>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Every architecture decision is made with the understanding that systems must operate under scale, audit requirements, and the organizational realities of regulated industries.
+                {t.about.productionFirstDesc}
               </p>
             </motion.div>
           </motion.div>

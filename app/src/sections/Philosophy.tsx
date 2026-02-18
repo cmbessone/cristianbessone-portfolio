@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { Quote, Zap } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function Philosophy() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden">
       {/* Background accent */}
@@ -22,10 +25,10 @@ export default function Philosophy() {
               
               <blockquote className="relative pl-8 border-l-2 border-primary/50">
                 <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-                  Models can{' '}
-                  <span className="text-muted-foreground">suggest.</span>
+                  {t.philosophy.quote1}
+                  <span className="text-muted-foreground">{t.philosophy.quote2}</span>
                   <br />
-                  <span className="gradient-text">Architecture decides.</span>
+                  <span className="gradient-text">{t.philosophy.quote3}</span>
                 </p>
               </blockquote>
               
@@ -48,21 +51,21 @@ export default function Philosophy() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">
-              Why Most AI Systems Fail in Production
+              {t.philosophy.heading}
             </h3>
             
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                The core problem is not accuracy.{' '}
-                <span className="text-white font-medium">It is ownership.</span>
+                {t.philosophy.p1prefix}
+                <span className="text-white font-medium">{t.philosophy.p1bold}</span>
               </p>
               
               <p>
-                Most AI systems are built around the assumption that better models solve production problems. They do not. Production problems are architectural—questions of responsibility, boundary enforcement, escalation paths, and decision authority.
+                {t.philosophy.p2}
               </p>
               
               <p>
-                When an AI system makes a decision that affects money, compliance, or user safety, someone must own that decision. The system must know when to act, when to escalate, and how to maintain an auditable chain of responsibility.
+                {t.philosophy.p3}
               </p>
             </div>
             
@@ -80,12 +83,11 @@ export default function Philosophy() {
                 </div>
                 <div>
                   <p className="text-white font-medium mb-1">
-                    Failure in production stems from treating AI as a prediction problem
+                    {t.philosophy.highlightTitle}
                   </p>
                   <p className="text-muted-foreground text-sm">
-                    when it is fundamentally a{' '}
-                    <span className="text-primary font-medium">decision problem</span>.
-                    Systems that survive scale, risk, and regulation are built on clear ownership, not better loss functions.
+                    {t.philosophy.highlightDesc}
+                    <span className="text-primary font-medium">{t.philosophy.highlightBold}</span>{t.philosophy.highlightSuffix}
                   </p>
                 </div>
               </div>

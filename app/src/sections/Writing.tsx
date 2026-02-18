@@ -1,25 +1,11 @@
 import { motion } from 'framer-motion';
 import { BookOpen, FileText, ArrowUpRight } from 'lucide-react';
-
-const articles = [
-  {
-    title: 'The Ownership Gap in AI Systems',
-    description: 'Why most production failures stem from unclear decision boundaries rather than model accuracy.',
-    date: 'Coming Soon',
-  },
-  {
-    title: 'Architecting for Escalation',
-    description: 'Designing AI systems that know when to defer to human judgment.',
-    date: 'Coming Soon',
-  },
-  {
-    title: 'Hybrid Intelligence: Rules, Models, and Humans',
-    description: 'Building resilient systems that combine multiple decision-making approaches.',
-    date: 'Coming Soon',
-  },
-];
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function Writing() {
+  const { t } = useLanguage();
+  const articles = t.writing.articles;
+
   return (
     <section className="relative py-24 sm:py-32">
       {/* Background gradient */}
@@ -34,10 +20,10 @@ export default function Writing() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Writing & Thinking
+            {t.writing.heading}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I document patterns of AI failure in production—not as cautionary tales, but as design constraints.
+            {t.writing.subheading}
           </p>
         </motion.div>
         
@@ -60,8 +46,8 @@ export default function Writing() {
                 <div className="relative w-full max-w-[240px] mx-auto aspect-[3/4] rounded-xl bg-gradient-to-br from-primary/20 to-purple-500/20 border border-primary/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
                   <div className="text-center p-6">
                     <BookOpen className="w-16 h-16 text-primary mx-auto mb-4" />
-                    <div className="text-white font-bold text-lg">Responsibility-Driven</div>
-                    <div className="gradient-text font-bold text-xl">AI Architecture</div>
+                    <div className="text-white font-bold text-lg">{t.writing.bookCover1}</div>
+                    <div className="gradient-text font-bold text-xl">{t.writing.bookCover2}</div>
                   </div>
                   
                   {/* Spine effect */}
@@ -73,28 +59,24 @@ export default function Writing() {
               <div className="lg:col-span-2">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-sm font-medium">
-                    In Progress
+                    {t.writing.bookBadge}
                   </span>
                 </div>
                 
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                  Responsibility-Driven AI Architecture
+                  {t.writing.bookTitle}
                 </h3>
                 
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  A book focused on decision ownership, boundary enforcement, and the gap between demonstration and deployment. This work is not about positioning or marketing—it is about establishing a clearer understanding of what production AI actually requires.
+                  {t.writing.bookDesc}
                 </p>
                 
                 <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 rounded-lg bg-dark-200 text-sm text-muted-foreground">
-                    Decision Ownership
-                  </span>
-                  <span className="px-4 py-2 rounded-lg bg-dark-200 text-sm text-muted-foreground">
-                    Boundary Enforcement
-                  </span>
-                  <span className="px-4 py-2 rounded-lg bg-dark-200 text-sm text-muted-foreground">
-                    Production Constraints
-                  </span>
+                  {t.writing.bookTags.map((tag) => (
+                    <span key={tag} className="px-4 py-2 rounded-lg bg-dark-200 text-sm text-muted-foreground">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Linkedin, Mail } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 const socialLinks = [
   {
@@ -16,6 +17,7 @@ const socialLinks = [
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
   
   return (
     <footer className="relative py-12 border-t border-border">
@@ -35,7 +37,7 @@ export default function Footer() {
               <span className="text-primary font-medium">AI Architect</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Architecture outlasts models. Responsibility outlasts accuracy.
+              {t.footer.tagline}
             </p>
           </motion.div>
           
@@ -71,7 +73,7 @@ export default function Footer() {
           className="mt-8 pt-8 border-t border-border/50 text-center"
         >
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Cristian Bessone. All rights reserved.
+            © {currentYear} Cristian Bessone. {t.footer.rights}
           </p>
         </motion.div>
       </div>

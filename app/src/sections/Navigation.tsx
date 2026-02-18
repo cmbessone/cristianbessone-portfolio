@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-
-const navLinks = [
-  { name: 'Work', href: '#work' },
-  { name: 'About', href: '#about' },
-  { name: 'Writing', href: '#writing' },
-  { name: 'Contact', href: '#contact' },
-];
+import { useLanguage } from '@/i18n/LanguageContext';
+import LanguageToggle from '@/components/LanguageToggle';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { name: t.nav.work, href: '#work' },
+    { name: t.nav.about, href: '#about' },
+    { name: t.nav.writing, href: '#writing' },
+    { name: t.nav.contact, href: '#contact' },
+  ];
   
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +50,7 @@ export default function Navigation() {
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <a
-                  key={link.name}
+                  key={link.href}
                   href={link.href}
                   className="text-sm text-muted-foreground hover:text-white transition-colors duration-200 relative group"
                 >
@@ -55,19 +58,23 @@ export default function Navigation() {
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
                 </a>
               ))}
+              <LanguageToggle />
             </div>
             
             {/* Mobile menu button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden w-10 h-10 rounded-lg bg-dark-100 flex items-center justify-center text-white"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
-            </button>
+            <div className="flex md:hidden items-center gap-3">
+              <LanguageToggle />
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="w-10 h-10 rounded-lg bg-dark-100 flex items-center justify-center text-white"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </motion.nav>
@@ -89,7 +96,7 @@ export default function Navigation() {
             <div className="relative flex flex-col items-center justify-center h-full gap-8">
               {navLinks.map((link, index) => (
                 <motion.a
-                  key={link.name}
+                  key={link.href}
                   href={link.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
