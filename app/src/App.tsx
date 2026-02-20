@@ -1,6 +1,7 @@
 import Navigation from './sections/Navigation';
 import Hero from './sections/Hero';
 import WhatIWorkOn from './sections/WhatIWorkOn';
+import SentinelAIDashboard from './sections/SentinelAIDashboard';
 import Philosophy from './sections/Philosophy';
 import About from './sections/About';
 import Writing from './sections/Writing';
@@ -17,6 +18,7 @@ function App() {
         <main>
           <Hero />
           <WhatIWorkOn />
+          <SentinelAIDashboard />
           <Philosophy />
           <About />
           <Writing />

@@ -52,6 +52,18 @@ const translations = {
       ],
     },
 
+    // Sentinel AI Dashboard
+    sentinel: {
+      title: 'Sentinel AI Dashboard',
+      description:
+        'A governance and audit system for AI decision-making in regulated domains. Real-time monitoring of AI execution, policy enforcement, and compliance-ready audit trails. Built to handle the operational requirements of fintech and legal systems where decisions must be defensible and traceable.',
+      features: ['Real-time Governance', 'Risk Scoring', 'Token Tracking', 'Audit Ready', 'Multi-domain'],
+      cta: 'Explore Demo',
+      apiLink: 'API Documentation',
+      demoUrl: 'https://sentinelai.cristianbessone.com/',
+      apiUrl: 'https://api.cristianbessone.com/docs',
+    },
+
     // Philosophy
     philosophy: {
       quote1: 'Models can ',
@@ -197,6 +209,18 @@ const translations = {
             'Sistemas diseñados para operar bajo escala, requisitos de auditoría, control de versiones, capacidad de reversión y las realidades organizacionales de industrias reguladas.',
         },
       ],
+    },
+
+    // Sentinel AI Dashboard
+    sentinel: {
+      title: 'Sentinel AI Dashboard',
+      description:
+        'Un sistema de gobernanza y auditoría para la toma de decisiones de IA en dominios regulados. Monitoreo en tiempo real de ejecución de IA, cumplimiento de políticas y pistas de auditoría listas para cumplimiento. Construido para manejar los requisitos operacionales de sistemas fintech y legales donde las decisiones deben ser defendibles y rastreables.',
+      features: ['Gobernanza en Tiempo Real', 'Scoring de Riesgo', 'Rastreo de Tokens', 'Auditoría Lista', 'Multi-dominio'],
+      cta: 'Explorar Demo',
+      apiLink: 'Documentación API',
+      demoUrl: 'https://sentinelai.cristianbessone.com/dashboard',
+      apiUrl: 'https://api.cristianbessone.com',
     },
 
     // Philosophy
